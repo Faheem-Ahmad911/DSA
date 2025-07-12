@@ -71,6 +71,31 @@ struct Queue
             cout << "Queue is Empty" << endl;
         }
     }
+    void RemoveDuplicate(Queue &q){
+        int s = q.rear - q.front+1;
+        int unique_elements[s];
+        int ind;
+        for (int i =q.front;i<q.rear;i++){
+            bool isDup = false;
+            for (int j =q.front+1;j<q.rear;j++){
+                if (arr[i]==arr[j]){
+                    isDup = true;
+                    break;
+                }
+
+            }
+            if(!isDup){
+                unique_elements[ind++]=arr[i];
+            }
+        }
+        q.front = 0;
+            q.rear = ind - 1;
+            for (int i = 0; i < ind; i++) {
+                q.arr[i] = unique_elements[i]; // Update the queue with unique elements
+            }
+        
+
+    }
     ~Queue()
     {
         delete[] arr;
