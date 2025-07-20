@@ -12,7 +12,7 @@ void Bubble_sort(int arr[]){
     }
 }
 int main()
-{   int arr[5]={5,4,3,2,1};
+{   int arr[5]={5,4,7,2,1};
       Bubble_sort(arr);
       cout<<"Sorted array is"<<endl;
       for(int i=0;i<5;i++){
