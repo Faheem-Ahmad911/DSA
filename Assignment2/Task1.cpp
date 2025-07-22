@@ -1,4 +1,5 @@
 #include <iostream>
+#include <chrono>
 using namespace std;
 using namespace std::chrono;
 void Bubble_Sort(int arr[], int size)
@@ -73,7 +74,6 @@ void printArray(int arr[], int size) {
     cout << endl;
 }
 
-#include <chrono>
 
 int main() {
     const int n = 10000;
