@@ -10,7 +10,7 @@ def insertion_sort(arr):
         arr[j + 1] = key
 
 # Example usage
-arr2 = [64, 34, 25, 12, 22, 11, 90]
+arr2 = [8, 4, 1, 5, 2]
 print("Original (Insertion):", arr2)
 insertion_sort(arr2)
 print("Sorted (Insertion):  ", arr2)

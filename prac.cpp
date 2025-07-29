@@ -1,30 +1,56 @@
-void List::merge(List& list1, List& list2) {
-    Node* t1 = list1.head;
-    Node* t2 = list2.head;
+#include<iostream>
+using namespace std;
+struct Queue{
+    int *arr;
+    int front,rear,size;
 
-    // Clear this list first
-    head = nullptr;
-    Node* tail = nullptr;
+    Queue(int s){
+        size =s;
+        front,rear=-1;
+        arr = new int[s];
+    }
+    bool isEmpty(){
+        return rear == -1;
 
-    while (t1 != nullptr && t2 != nullptr) {
-        // Take node from list1
-        if (head == nullptr) {
-            head = t1;
-            tail = t1;
-        } else {
-            tail->next = t1;
-            tail = tail->next;
-        }
-        t1 = t1->next;
-
-        // Take node from list2
-        tail->next = t2;
-        tail = tail->next;
-        t2 = t2->next;
+    }
+    bool isfull(){
+        return front == rear;
     }
 
-    // Set ends and empty the other lists
-    tail->next = nullptr;
-    list1.head = nullptr;
-    list2.head = nullptr;
+    void enqueue(int val){
+        if (isEmpty()){
+            front=0;
+        }
+        if (!isfull()){
+            arr[++rear]=val;
+        }
+        
+    }
+    void dequeue(){
+        if (!isEmpty()){
+            cout<<arr[front++]<<"Is dequeued"<<endl;
+
+        }
+    }
+    void top(){
+        if (!isEmpty()){
+            cout<<arr[front]<<" Front element "<<endl;
+        }
+    }
+    void Display(){
+        if (!isEmpty()){
+            cout<<arr[front]<<"  IS DISPLAYED"<<endl;
+        }
+    }
+};
+int main()
+{   Queue q1(5);
+    q1.enqueue(12);
+    // q1.dequeue();
+    q1.enqueue(1);
+    q1.enqueue(2);
+    q1.top();
+    q1.Display();
+
+      return 0;
 }
