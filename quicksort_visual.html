@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quick Sort Visual</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 20px;
+    }
+    .step {
+      margin-bottom: 30px;
+    }
+    .title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .array {
+      display: flex;
+      gap: 10px;
+    }
+    .box {
+      padding: 15px 20px;
+      background-color: #ffffff;
+      border: 2px solid #333;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 18px;
+      text-align: center;
+      min-width: 50px;
+    }
+    .pivot {
+      background-color: #f39c12;
+      color: white;
+    }
+    .less {
+      background-color: #27ae60;
+      color: white;
+    }
+    .greater {
+      background-color: #c0392b;
+      color: white;
+    }
+    .highlight {
+      background-color: #3498db;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="step">
+    <div class="title">Step 1: Initial Array</div>
+    <div class="array">
+      <div class="box">10</div>
+      <div class="box">7</div>
+      <div class="box">8</div>
+      <div class="box">9</div>
+      <div class="box">1</div>
+      <div class="box pivot">5</div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="title">Step 2: After 1 is less than pivot (swap with 10)</div>
+    <div class="array">
+      <div class="box less">1</div>
+      <div class="box">7</div>
+      <div class="box">8</div>
+      <div class="box">9</div>
+      <div class="box greater">10</div>
+      <div class="box pivot">5</div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="title">Step 3: Swap pivot with correct position (swap 5 with 7)</div>
+    <div class="array">
+      <div class="box less">1</div>
+      <div class="box pivot">5</div>
+      <div class="box">8</div>
+      <div class="box">9</div>
+      <div class="box">10</div>
+      <div class="box highlight">7</div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="title">Step 4: Recursive on Right Half [8, 9, 10, 7] with Pivot = 7</div>
+    <div class="array">
+      <div class="box">1</div>
+      <div class="box">5</div>
+      <div class="box">8</div>
+      <div class="box">9</div>
+      <div class="box">10</div>
+      <div class="box pivot">7</div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="title">Step 5: Swap pivot 7 with 8 (put in correct position)</div>
+    <div class="array">
+      <div class="box">1</div>
+      <div class="box">5</div>
+      <div class="box pivot">7</div>
+      <div class="box">9</div>
+      <div class="box">10</div>
+      <div class="box highlight">8</div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="title">Step 6: Final Sorted Array</div>
+    <div class="array">
+      <div class="box">1</div>
+      <div class="box">5</div>
+      <div class="box">7</div>
+      <div class="box">8</div>
+      <div class="box">9</div>
+      <div class="box">10</div>
+    </div>
+  </div>
+
+</body>
+</html>
