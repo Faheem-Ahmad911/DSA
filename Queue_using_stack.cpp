@@ -14,7 +14,7 @@ struct  Stack
         return top == size -1;
     }
     void Push_using_stack_in_Queue(){
-        Stack s2;
+        Stack s2(size); // Provide size for s2
         if(isFull()){
             cout<<"Queue is Full"<<endl;
         }
