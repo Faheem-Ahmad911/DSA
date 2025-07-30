@@ -37,10 +37,6 @@ struct circular_linedlist
             head = newnode;
         }
     }
-    void Delete_at_given_key(int index){
-        if (!head) return;
-        if (!head->next) 
-    }
 };
 
 int main()
