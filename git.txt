@@ -10,3 +10,8 @@ For New files
 git add $(git ls-files --others --exclude-standard)
 git commit -m "Add new files"
 git push
+
+
+git add .
+git commit -m "Update modified files"
+git push
