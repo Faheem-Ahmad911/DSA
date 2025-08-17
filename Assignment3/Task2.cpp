@@ -6,40 +6,39 @@
 #include<fstream>
 using namespace std;
 
-string extract(const string & word){
-    string cleanword;
-    for (char ch : word){
-        if (isalpha(ch)){
-            cleanword+=tolower(ch);
+string cleanWord(const string &word) {
+    string cleanedWord;
+    for (char ch : word) {
+        if (isalpha(ch)) {
+            cleanedWord += tolower(ch);
         }
     }
-    return cleanword;
+    return cleanedWord;
 }
 
-int main()
-{   ifstream file("sample.txt");
-    if (!file.is_open()){
-        cout<<"No file found"<<endl;
+int main() {
+    ifstream inputFile("sample.txt");
+    if (!inputFile.is_open()) {
+        cout << "No file found" << endl;
     }
-    unordered_map<string,int> wordfreq;
-    string line,word;
-    while (getline(file,line))
-    {
-       stringstream ss(line);
-       while (ss >> word)
-       {
-        string cleanw = extract(word);
-        if (!cleanw.empty()){
-            wordfreq[cleanw]++;
-        }
-       }
-       
-    }
-    file.close();
 
-    for (auto &entry : wordfreq) {
+    unordered_map<string, int> wordFrequency;
+    string line, rawWord;
+
+    while (getline(inputFile, line)) {
+        stringstream ss(line);
+        while (ss >> rawWord) {
+            string cleanedWord = cleanWord(rawWord);
+            if (!cleanedWord.empty()) {
+                wordFrequency[cleanedWord]++;
+            }
+        }
+    }
+    inputFile.close();
+
+    for (auto &entry : wordFrequency) {
         cout << entry.first << ": " << entry.second << endl;
     }
-    
-      return 0;
+
+    return 0;
 }
