@@ -19,13 +19,13 @@ bool isValid(int x, int y, int rows, int cols, vector<string>& maze, vector<vect
     return (x >= 0 && y >= 0 && x < rows && y < cols && maze[x][y] == '*' && !visited[x][y]);
 }
 
-// BFS for shortest path
+
 void BFS(vector<string>& maze, Point start, Point end) {
     int rows = maze.size();
     int cols = maze[0].size();
 
-    vector<vector<bool>> visited(rows, vector<bool>(cols, false));
     vector<vector<Point>> parent(rows, vector<Point>(cols, {-1, -1}));
+    vector<vector<bool>> visited(rows, vector<bool>(cols, false));
 
     queue<Point> q;
     q.push(start);
@@ -52,7 +52,7 @@ void BFS(vector<string>& maze, Point start, Point end) {
     }
 
     if (found) {
-        cout << "\nShortest Path using BFS:\n";
+        cout << "\nPath Found using BFS:"<<endl;
         vector<Point> path;
         Point curr = end;
         while (!(curr.x == -1 && curr.y == -1)) {
@@ -62,16 +62,15 @@ void BFS(vector<string>& maze, Point start, Point end) {
         reverse(path.begin(), path.end());
         for (auto p : path) {
             cout << "(" << p.x << "," << p.y << ") ";
-            maze[p.x][p.y] = 'o'; // mark BFS path
+            maze[p.x][p.y] = 'o'; 
         }
-        cout << "\n\nMaze with BFS path:\n";
+        cout << "Maze with BFS path:\n";
         for (auto &row : maze) cout << row << "\n";
     } else {
         cout << "No path found using BFS.\n";
     }
 }
 
-// DFS for any path
 bool DFSUtil(vector<string>& maze, Point curr, Point end, vector<vector<bool>>& visited, vector<Point>& path) {
     if (curr.x == end.x && curr.y == end.y) {
         path.push_back(curr);
@@ -102,7 +101,7 @@ void DFS(vector<string>& maze, Point start, Point end) {
             cout << "(" << p.x << "," << p.y << ") ";
             maze[p.x][p.y] = 'x'; // mark DFS path
         }
-        cout << "\n\nMaze with DFS path:\n";
+        cout << "\nMaze with DFS path:\n";
         for (auto &row : maze) cout << row << "\n";
     } else {
         cout << "No path found using DFS.\n";
