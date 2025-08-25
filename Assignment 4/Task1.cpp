@@ -16,19 +16,13 @@ class StudentMaxHeap
     vector<StudentHeap> heap;
 
 public:
-    void insert_student(StudentHeap s)
+void heapify_up(int ind)
+{
+    while (ind != 0)
     {
-        heap.push_back(s);
-        int ind = heap.size() - 1;
-        heapify_up(ind);
-    }
-    void heapify_up(int ind)
-    {
-        while (ind != 0)
+        int pnode = (ind - 1) / 2;
+        if (heap[pnode].Cgpa < heap[ind].Cgpa)
         {
-            int pnode = (ind - 1) / 2;
-            if (heap[pnode].Cgpa < heap[ind].Cgpa)
-            {
                 swap(heap[pnode], heap[ind]);
                 ind = pnode;
             }
@@ -61,6 +55,12 @@ public:
             swap(heap[ind], heap[max]);
             ind = max;
         }
+    }
+    void insert_student(StudentHeap s)
+    {
+        heap.push_back(s);
+        int ind = heap.size() - 1;
+        heapify_up(ind);
     }
     void remove_best_student()
     {
